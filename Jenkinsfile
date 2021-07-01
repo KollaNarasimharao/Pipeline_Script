@@ -14,23 +14,24 @@ pipeline {
                 stage('Test On Windows') {
                     agent {
                         label "windows"
-                    }
+                          }
                     steps {
                         echo "Task1 on Agent"
-                    }
-                  }
+                          }
+                      }
                 stage('Test On Master') {
                     agent {
                         label "master"
-                    }
+                          }
                     steps {
 			echo "Task1 on Master"
-			}
-                }
-            }
-        }
-	    stage('Email Notification'){
-			mail bcc: '', body: 'This is Narasimha', cc: '', from: '', replyTo: '', subject: 'Jenkins Jobs', to: 'nanichowdary9@gmail.com'
-		      }
+			  }
+                       }
+                  }
+	      }
+         stages('Email Notification') {
+	                             mail bcc: '', body: 'This is Narasimha', cc: '', from: '', replyTo: '', subject: 'Jenkins Jobs', to: 'nanichowdary9@gmail.com'
+		                     }
+	}
     }
-}
+
